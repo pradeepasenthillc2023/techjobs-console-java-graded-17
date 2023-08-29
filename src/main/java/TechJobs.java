@@ -132,7 +132,7 @@ public class TechJobs {
             System.out.println("*****\n");
         }
 
-        /*System.out.println("printJobs is not implemented yet");*/
+        System.out.println("printJobs is not implemented yet");
 
 
 
