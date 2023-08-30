@@ -94,9 +94,36 @@ public class JobData {
         // load data, if not already loaded
         loadData();
 
+
+            ArrayList<HashMap<String, String>> uniqueJobs = new ArrayList<>();
+
+            for (HashMap<String, String> job : allJobs) {
+                boolean containsValue = false;
+
+                for (HashMap<String, String> uniqueJob : uniqueJobs) {
+                    if (job.equals(uniqueJob)) {
+                        containsValue = true;
+                        break;
+                    }
+                }
+
+                if (!containsValue) {
+                    for (String attributeValue : job.values()) {
+                        if (attributeValue != null && attributeValue.toLowerCase().contains(value.toLowerCase())) {
+                            uniqueJobs.add(job);
+                            break;
+                        }
+                    }
+                }
+            }
+
+            return uniqueJobs;
+        }
+
+
         // TODO - implement this method
-        return null;
-    }
+        //return null;
+
 
     /**
      * Read in data from a CSV file and store it in a list
