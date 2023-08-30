@@ -98,23 +98,27 @@ public class JobData {
             ArrayList<HashMap<String, String>> uniqueJobs = new ArrayList<>();
 
             for (HashMap<String, String> job : allJobs) {
-                boolean containsValue = false;
+                String aValue = job.values().toString().toLowerCase();
+                if(aValue.contains(value.toLowerCase())){
+                    uniqueJobs.add(job);
+                }
+                /*boolean containsValue = false;
 
                 for (HashMap<String, String> uniqueJob : uniqueJobs) {
                     if (job.equals(uniqueJob)) {
                         containsValue = true;
                         break;
                     }
-                }
+                }*/
 
-                if (!containsValue) {
+                /*if (!containsValue) {
                     for (String attributeValue : job.values()) {
                         if (attributeValue != null && attributeValue.toLowerCase().contains(value.toLowerCase())) {
                             uniqueJobs.add(job);
                             break;
                         }
                     }
-                }
+                }*/
             }
 
             return uniqueJobs;
