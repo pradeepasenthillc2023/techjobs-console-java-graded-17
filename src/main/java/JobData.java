@@ -41,7 +41,7 @@ public class JobData {
                 values.add(aValue);
             }
         }
-
+        Collections.sort(values);
         return values;
     }
 
@@ -49,14 +49,13 @@ public class JobData {
 
         // load data, if not already loaded
         loadData();
-
+        ArrayList<HashMap<String ,String>> copyAllJobs = new ArrayList<>(allJobs);
         return allJobs;
     }
 
     /**
      * Returns results of search the jobs data by key/value, using
      * inclusion of the search term.
-     *
      * For example, searching for employer "Enterprise" will include results
      * with "Enterprise Holdings, Inc".
      *
